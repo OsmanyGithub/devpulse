@@ -3,16 +3,22 @@ package com.devpulse.devpulse;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.devpulse.devpulse.ai.AIService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/developers")
 public class DeveloperController {
 
     private final DeveloperService developerService;
+    private final AIService aiService;
 
-    public DeveloperController(DeveloperService developerService) {
+    public DeveloperController(DeveloperService developerService, AIService aiService) {
         this.developerService = developerService;
+        this.aiService = aiService;
     }
 
     @PostMapping
@@ -20,6 +26,12 @@ public class DeveloperController {
             @Valid @RequestBody DeveloperRequestDTO request) {
 
         return developerService.createDeveloper(request);
+    }
+
+    @PostMapping("/ai-check")
+    public ResponseEntity<List<String>> aiCheckDeveloper(@RequestBody DeveloperRequestDTO request){
+        List<String> suggestions = aiService.analyzeDeveloperRequest(request);
+        return ResponseEntity.ok(suggestions);
     }
 
     @GetMapping("/{id}")

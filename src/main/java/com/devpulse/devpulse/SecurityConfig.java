@@ -18,8 +18,16 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        // Allow creating developers
                         .requestMatchers(HttpMethod.POST, "/developers").permitAll()
+
+                        // Allow AI endpoint without login
+                        .requestMatchers(HttpMethod.POST, "/developers/ai-check").permitAll()
+
+                        // Protect GET developers
                         .requestMatchers(HttpMethod.GET, "/developers").authenticated()
+
+                        // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults());

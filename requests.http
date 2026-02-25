@@ -1,8 +1,9 @@
-POST http://localhost:8080/developers
+### AI Check
+POST http://localhost:8080/developers/ai-check
 Content-Type: application/json
 
 {
   "name": "",
-  "email": "bad",
-  "skill": ""
+  "email": "wrongemail",
+  "skill": "J"
 }
