@@ -40,4 +40,5 @@ public class Developer {
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
     public void setSkill(String skill) { this.skill = skill; }
+    public void setId(Long id) { this.id = id; }
 }
