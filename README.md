@@ -16,7 +16,7 @@ It allows creating, updating, deleting, and searching developers with skills and
 ## Demo
 
 You can watch a demo playlist of this project here:  
-[DevPulse Demo Playlist](https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID)
+[DevPulse Demo Playlist](https://www.youtube.com/playlist?list=PLgjQN-RUJyF_z7oBw1HAjbDgHUGqBLPuq)
 
 ## Getting Started
 

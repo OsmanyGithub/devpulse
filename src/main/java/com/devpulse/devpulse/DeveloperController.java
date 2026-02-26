@@ -40,8 +40,8 @@ public class DeveloperController {
     }
 
     @GetMapping
-    public Page<DeveloperResponseDTO> getAll(Pageable pageable) {
-        return developerService.searchDevelopers("", "", pageable);
+    public List<DeveloperResponseDTO> getAll(Pageable pageable) {
+        return developerService.searchDevelopers("", "", pageable).getContent();
     }
 
     @GetMapping("/search")
